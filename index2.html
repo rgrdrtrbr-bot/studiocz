@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio CZ Personalizados | Brindes, Presentes & Artesanato em Santiago - RS</title>
+    <meta name="description" content="Studio CZ Personalizados em Santiago RS. Brindes corporativos, presentes afetivos, cuias gravadas a laser, canecas, chaveiros 3D e mimos personalizados.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0F2537',
+                            deepBlue: '#1D3557',
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                            cyan: '#0EA5E9',
+                            softBg: '#F8FAFC',
+                            cardBg: '#FFFFFF',
+                            amberLight: '#FFF7ED'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header {
+            background: rgba(15, 37, 55, 0.95);
+            backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15,37,55,0.92) 0%, rgba(29,53,87,0.85) 100%);
+        }
+        .orange-glow {
+            box-shadow: 0 10px 30px -5px rgba(249, 115, 22, 0.3);
+        }
+        .pulse-subtle {
+            animation: pulseSlow 3s infinite ease-in-out;
+        }
+        @keyframes pulseSlow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 0.95; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-orange selection:text-white"
+      x-data="studioApp()">
+
+    <!-- TOPBAR INFORMATIVA COM STATUS DE FUNCIONAMENTO -->
+    <div class="bg-brand-navy border-b border-slate-800 text-slate-300 text-xs py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+                <span class="inline-flex items-center gap-1.5 font-medium">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-orange"></i>
+                    Rua dos Poetas, 1166 - Centro, Santiago - RS
+                </span>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="inline-flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-cyan"></i>
+                    (55) 3251-6054
+                </span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- Status Aberto/Fechado Dinâmico -->
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide"
+                      :class="isOpenNow ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'bg-amber-500/10 text-amber-400 border border-amber-500/30'">
+                    <span class="w-2 h-2 rounded-full" :class="isOpenNow ? 'bg-emerald-400 animate-ping' : 'bg-amber-400'"></span>
+                    <span x-text="isOpenNow ? 'LOJA ABERTA AGORA' : 'FECHADO NO MOMENTO'"></span>
+                </span>
+                <span class="text-slate-400 text-[11px]" x-text="hoursText"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-700/50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
+            
+            <!-- LOGO BRAND -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-md group-hover:scale-105 transition-transform">
+                    <img src="logomarcastudiocz.jpg" alt="Logo Studio CZ Personalizados Santiago RS" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-xl text-white tracking-tight leading-none block">
+                        Studio <span class="text-brand-orange">CZ</span>
+                    </span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-cyan block mt-0.5">
+                        Personalizados
+                    </span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS DESKTOP -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-200">
+                <a href="#hero" class="hover:text-brand-orange transition-colors">Início</a>
+                <a href="#carrossel" class="hover:text-brand-orange transition-colors">Destaques</a>
+                <a href="#sobre" class="hover:text-brand-orange transition-colors">A Loja</a>
+                <a href="#produtos" class="hover:text-brand-orange transition-colors">Produtos</a>
+                <a href="#diferenciais" class="hover:text-brand-orange transition-colors">Diferenciais</a>
+                <a href="#depoimentos" class="hover:text-brand-orange transition-colors">Avaliações</a>
+                <a href="#localizacao" class="hover:text-brand-orange transition-colors">Contato</a>
+            </nav>
+
+            <!-- CTA HEADER -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a :href="getWhatsAppLink('Olá! Gostaria de fazer um orçamento no Studio CZ.')" target="_blank"
+                   class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-md transition-all duration-200 flex items-center gap-2 orange-glow">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Pedir Orçamento</span>
+                </a>
+            </div>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-white p-2 focus:outline-none">
+                <i data-lucide="menu" x-show="!mobileMenuOpen" class="w-6 h-6"></i>
+                <i data-lucide="x" x-show="mobileMenuOpen" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE NAV MENU DROPDOWN -->
+        <div x-show="mobileMenuOpen" x-transition class="lg:hidden bg-brand-navy border-t border-slate-800 px-6 py-4 space-y-3">
+            <a href="#hero" @click="mobileMenuOpen = false" class="block text-slate-200 hover:text-brand-orange py-1.5 font-medium">Início</a>
+            <a href="#carrossel" @click="mobileMenuOpen = false" class="block text-slate-200 hover:text-brand-orange py-1.5 font-medium">Destaques em Carrossel</a>
+            <a href="#sobre" @click="mobileMenuOpen = false" class="block text-slate-200 hover:text-brand-orange py-1.5 font-medium">Sobre a Studio CZ</a>
+            <a href="#produtos" @click="mobileMenuOpen = false" class="block text-slate-200 hover:text-brand-orange py-1.5 font-medium">Produtos e Serviços</a>
+            <a href="#simulador" @click="mobileMenuOpen = false" class="block text-slate-200 hover:text-brand-orange py-1.5 font-medium">Simulador de Pedido</a>
+            <a href="#localizacao" @click="mobileMenuOpen = false" class="block text-slate-200 hover:text-brand-orange py-1.5 font-medium">Localização em Santiago RS</a>
+            <a :href="getWhatsAppLink('Olá! Vim pelo site e preciso de atendimento.')" target="_blank"
+               class="block text-center bg-brand-orange text-white font-bold py-2.5 rounded-xl mt-2">
+               Chamar no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION PRINCIPAL -->
+    <section id="hero" class="relative bg-brand-navy text-white overflow-hidden py-16 lg:py-20">
+        <!-- Elementos decorativos de fundo -->
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#0ea5e9_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-brand-cyan text-xs font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+                    LOJA FÍSICA E ATELIÊ DE CONFECÇÃO EM SANTIAGO - RS
+                </div>
+
+                <h1 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+                    Presentes afetivos & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-brand-cyan">Brindes Corporativos</span> sob medida.
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                    Sua ideia transformada em algo único. Confeccionamos cuias com gravação a laser, kits com erva-mate local de Santiago, canecas, quadros afetivos, impressões 3D e mimos para eventos ou empresas.
+                </p>
+
+                <!-- Métricas / Selos rápidos -->
+                <div class="pt-2 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-sm text-slate-300 font-medium">
+                    <div class="flex items-center gap-2">
+                        <div class="flex text-amber-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <span class="font-bold text-white">5.0</span> no Google
+                    </div>
+                    <div class="h-4 w-px bg-slate-700 hidden sm:block"></div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                        Atendimento Local em Santiago
+                    </div>
+                    <div class="h-4 w-px bg-slate-700 hidden sm:block"></div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-brand-orange"></i>
+                        Acabamento Premium
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a :href="getWhatsAppLink('Olá Studio CZ! Quero saber mais sobre os produtos personalizados.')" target="_blank"
+                       class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl hover:shadow-2xl transition-all duration-200 flex items-center justify-center gap-3 orange-glow transform hover:-translate-y-0.5">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        Solicitar Orçamento no WhatsApp
+                    </a>
+                    <a href="#produtos"
+                       class="bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 px-7 py-4 rounded-xl font-semibold text-base transition-all duration-200 flex items-center justify-center gap-2">
+                        <span>Explorar Catálogo</span>
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- IMAGEM DE DESTAQUE HERO -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-orange to-brand-cyan rounded-3xl blur-lg opacity-40"></div>
+                    <div class="relative bg-brand-navy border border-slate-700 rounded-3xl p-3 shadow-2xl overflow-hidden">
+                        <img src="studiocz5.jpg" alt="Kit de presente artesanal Studio CZ Santiago" class="w-full h-[380px] object-cover rounded-2xl">
+                        <div class="absolute bottom-6 left-6 right-6 bg-brand-navy/90 backdrop-blur-md p-4 rounded-xl border border-slate-700 text-left">
+                            <span class="text-brand-orange text-xs font-bold uppercase tracking-wider block">Destaque de Presente</span>
+                            <p class="text-white font-semibold text-sm mt-0.5">Caixas artesanais em MDF com gravura, caneca e kit especial para datas comemorativas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BANNER DINÂMICO (CARROSSEL COM LINKS DIRETOS PARA OS SERVIÇOS) -->
+    <section id="carrossel" class="py-16 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-brand-orange text-xs font-extrabold uppercase tracking-widest block">Nossa Vitrine Dinâmica</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-white mt-1">
+                        Serviços & Especialidades em Destaque
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Navegue pelas categorias e clique para ir direto ao serviço desejado no catálogo.</p>
+                </div>
+
+                <!-- CONTROLES DO CARROSSEL -->
+                <div class="flex items-center gap-3">
+                    <button @click="prevSlide()" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-orange border border-slate-700 flex items-center justify-center text-white transition-colors">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button @click="nextSlide()" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-orange border border-slate-700 flex items-center justify-center text-white transition-colors">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDER CONTAINER -->
+            <div class="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 shadow-2xl">
+                <div class="flex transition-transform duration-500 ease-out" :style="`transform: translateX(-${activeSlide * 100}%)`">
+                    
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-12 min-h-[420px] items-center">
+                            <!-- Foto Slide -->
+                            <div class="lg:col-span-7 h-64 sm:h-80 lg:h-full relative overflow-hidden">
+                                <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 lg:bg-gradient-to-r lg:from-transparent lg:to-slate-950/90"></div>
+                            </div>
+                            
+                            <!-- Conteúdo Slide -->
+                            <div class="lg:col-span-5 p-6 sm:p-10 space-y-4">
+                                <span class="px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider inline-block" x-text="slide.tag"></span>
+                                <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white" x-text="slide.title"></h3>
+                                <p class="text-slate-300 text-sm leading-relaxed" x-text="slide.description"></p>
+                                
+                                <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                                    <a :href="slide.targetSection" class="bg-brand-cyan hover:bg-sky-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+                                        <span>Ver este Serviço Abaixo</span>
+                                        <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                                    </a>
+                                    <a :href="getWhatsAppLink('Olá Studio CZ! Fiquei interessado no serviço: ' + slide.title)" target="_blank"
+                                       class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-5 py-3 rounded-xl text-sm transition-colors border border-slate-700 flex items-center justify-center gap-2">
+                                        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                                        <span>Cotar no WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+
+                </div>
+
+                <!-- INDICADORES -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 z-20">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <button @click="activeSlide = index"
+                                class="h-2 rounded-full transition-all duration-300"
+                                :class="activeSlide === index ? 'w-8 bg-brand-orange' : 'w-2 bg-slate-700'"></button>
+                    </template>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEÇÃO SOBRE A STUDIO CZ & TOUR PELA LOJA -->
+    <section id="sobre" class="py-16 sm:py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- VÍDEO DA LOJA / SHOWROOM -->
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 group">
+                        <video class="w-full h-[450px] object-cover" autoplay loop muted playsinline controls poster="studiocz4.jpg">
+                            <!-- O vídeo oficial embutido com tour pela loja da Rua dos Poetas -->
+                            <source src="studiocz1.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6 text-white pointer-events-none">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center text-white shrink-0">
+                                    <i data-lucide="store" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-base text-white">Vídeo Oficial do Nosso Ateliê</h4>
+                                    <p class="text-xs text-slate-300">Rua dos Poetas, 1166 - Centro, Santiago RS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEXTO INSTITUCIONAL -->
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+                    <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest block">Quem Somos • Studio CZ</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy leading-tight">
+                        Acolhimento local, criatividade sem limites e paixão por detalhes.
+                    </h2>
+                    
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        A <strong>Studio CZ Personalizados</strong> nasceu em Santiago (RS) com o propósito de transformar sentimentos e identidades visuais em objetos concretos e marcantes.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Desde <strong>cuias tradicionais gravadas a laser</strong> com dizeres gaúchos e erva-mate regional, até <strong>brindes empresariais de grande porte</strong>, quadros afetivos em fotos polaroid e acessórios impressos em 3D. Nossa loja física está pronta para receber você com um atendimento próximo e personalizado.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <span class="font-heading font-bold text-2xl text-brand-navy block">100%</span>
+                            <span class="text-xs text-slate-500 font-medium">Personalização exclusiva conforme seu pedido</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <span class="font-heading font-bold text-2xl text-brand-orange block">Santiago-RS</span>
+                            <span class="text-xs text-slate-500 font-medium">Produção local rápida sem fretes caros</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a :href="getWhatsAppLink('Olá! Quero conhecer mais sobre a Studio CZ e fazer um orçamento.')" target="_blank"
+                           class="inline-flex items-center gap-2 bg-brand-navy hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl text-sm transition-all shadow-md">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-brand-orange"></i>
+                            Falar com a Equipe no WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUTOS E SERVIÇOS (SEÇÃO CATEGORIZADA COM LINKS DO CARROSSEL) -->
+    <section id="produtos" class="py-16 sm:py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest block">Nosso Portfólio de Confecção</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">
+                    Tudo o que Confeccionamos para Você e Sua Empresa
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Navegue pelos nossos principais segmentos e solicite a arte ou cotação personalizada diretamente com nossa equipe.
+                </p>
+            </div>
+
+            <!-- FILTER CATEGORIES TAB -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button @click="categoryFilter = 'todos'"
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
+                        :class="categoryFilter === 'todos' ? 'bg-brand-orange text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'">
+                    Todos os Produtos
+                </button>
+                <button @click="categoryFilter = 'presentes'"
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
+                        :class="categoryFilter === 'presentes' ? 'bg-brand-orange text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'">
+                    Presentes Afetivos
+                </button>
+                <button @click="categoryFilter = 'copos'"
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
+                        :class="categoryFilter === 'copos' ? 'bg-brand-orange text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'">
+                    Copos, Canecas & Cuias
+                </button>
+                <button @click="categoryFilter = 'kits'"
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
+                        :class="categoryFilter === 'kits' ? 'bg-brand-orange text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'">
+                    Kits Corporativos & Mimos
+                </button>
+                <button @click="categoryFilter = 'brindes'"
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
+                        :class="categoryFilter === 'brindes' ? 'bg-brand-orange text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'">
+                    3D, Chaveiros & Campanhas
+                </button>
+            </div>
+
+            <!-- GRID DE PRODUTOS REALISTA COM AS IMAGENS FORNECIDAS (3 POR LINHA NO DESKTOP) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- ITEM 1: PRESENTES AFETIVOS QUADRO POLAROID -->
+                <div id="presentes-afetivos" x-show="categoryFilter === 'todos' || categoryFilter === 'presentes'" x-transition
+                     class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="studiocz2.jpg" alt="Quadro Personalizado Polaroid Studio CZ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-brand-navy text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Dia dos Namorados / Amor</span>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-heading font-bold text-lg text-brand-navy">Quadro Afetivo com Polaroids</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Design moderno e minimalista com moldura em madeira, mini prendedores e fotos Polaroid gravando momentos inesquecíveis.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de encomendar o Quadro Afetivo com Polaroids.')" target="_blank"
+                           class="w-full bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 2: CANECAS PERSONALIZADAS DE DATA -->
+                <div id="canecas-copos" x-show="categoryFilter === 'todos' || categoryFilter === 'copos'" x-transition
+                     class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="studiocz3.jpg" alt="Canecas personalizadas com foto e calendário" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-brand-orange text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Cerâmica Premium</span>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-heading font-bold text-lg text-brand-navy">Canecas de Calendário & Foto</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Impressão fotográfica de alta nitidez. Personalize com o mês especial do casal, foto marcante e mensagem afetuosa.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero personalização de Caneca com Foto e Calendário.')" target="_blank"
+                           class="w-full bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 3: KITS REGIONAIS COM ERVA MATE E CUIA GRAVADA -->
+                <div id="kits-corporativos" x-show="categoryFilter === 'todos' || categoryFilter === 'kits'" x-transition
+                     class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="studiocz5.jpg" alt="Caixa MDF de presente Vovô Studio CZ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Kits Especiais</span>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-heading font-bold text-lg text-brand-navy">Caixas Presente MDF & Chocolates</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Caixas de madeira com laço de cetim, canecas customizadas e mimos doces para Dia dos Avós, Mães, Pais e Datas Festivas.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero saber valores de Kits em Caixa de Madeira MDF.')" target="_blank"
+                           class="w-full bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 4: CHAVEIROS 3D PERSONALIZADOS -->
+                <div id="brindes-chaveiros" x-show="categoryFilter === 'todos' || categoryFilter === 'brindes'" x-transition
+                     class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="studiocz6.jpg" alt="Chaveiros impressos em 3D Studio CZ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-sky-600 text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Tecnologia 3D</span>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-heading font-bold text-lg text-brand-navy">Chaveiros Impressão 3D & Logos</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Modelagem e impressão 3D com textos sob medida ("Pai que conserta tudo", logomarcas, números, ícones e frases exclusivas).</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero fazer orçamentos para Chaveiros em Impressão 3D.')" target="_blank"
+                           class="w-full bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 5: MATERIAIS ESCOLARES E CORPORATIVOS -->
+                <div x-show="categoryFilter === 'todos' || categoryFilter === 'brindes'" x-transition
+                     class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="studiocz1.jpg" alt="Canetas, cadernos e garrafas térmicas personalizadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-brand-navy text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Corporativo</span>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-heading font-bold text-lg text-brand-navy">Garrafas, Agendas & Canetas</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Kits para empresas, técnicos e eventos. Canetas personalizadas, estojos, squeezes e blocos de anotações corporativos.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de orçamento para brindes corporativos e escolares.')" target="_blank"
+                           class="w-full bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ITEM 6: BRINDES PARA CAMPANHAS CONSCIENTIZAÇÃO -->
+                <div id="campanhas" x-show="categoryFilter === 'todos' || categoryFilter === 'campanhas' || categoryFilter === 'brindes'" x-transition
+                     class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="studiocz8.jpg" alt="Brindes Setembro Amarelo e Campanhas de Conscientização" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-amber-500 text-slate-900 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">Campanhas SIPAT / Datas</span>
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-heading font-bold text-lg text-brand-navy">Kits para Campanhas & SIPAT</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Toalhinhas, botons, caixas de chá, cartões e lembrancinhas para conscientização (Setembro Amarelo, Outubro Rosa, Novembro Azul).</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero preparar um kit para campanha de conscientização na minha empresa.')" target="_blank"
+                           class="w-full bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SIMULADOR INTERATIVO DE ORÇAMENTO RÁPIDO PARA WHATSAPP -->
+    <section id="simulador" class="py-16 bg-brand-navy text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
+            <div class="bg-slate-900/90 border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="text-brand-orange text-xs font-bold uppercase tracking-widest block">Simulador de Pedido Rápido</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-white">Monte seu orçamento em 30 segundos</h2>
+                    <p class="text-slate-300 text-xs sm:text-sm">Preencha abaixo para gerar a mensagem exata diretamente para nosso WhatsApp.</p>
+                </div>
+
+                <form @submit.prevent="sendSimulatedBudget()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Tipo de Produto</label>
+                        <select x-model="simProduct" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange">
+                            <option value="Cuias Gravadas a Laser">Cuias Gravadas a Laser com frases/desenhos</option>
+                            <option value="Canecas / Copos Térmicos">Canecas de Cerâmica ou Copos Térmicos</option>
+                            <option value="Quadro Afetivo Polaroid">Quadro Afetivo com Fotos Polaroid</option>
+                            <option value="Kit Presente em Caixa MDF">Kit Presente em Caixa de Madeira MDF</option>
+                            <option value="Chaveiro 3D / Brindes">Chaveiros 3D ou Acessórios Impressos</option>
+                            <option value="Brindes Empresariais / Campanhas">Brindes Empresariais / SIPAT / Evento</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Quantidade Estimada</label>
+                        <select x-model="simQuantity" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange">
+                            <option value="1 a 5 unidades (Presente Pessoal)">1 a 5 unidades (Presente Pessoal)</option>
+                            <option value="6 a 20 unidades (Pequeno Evento / Mimo)">6 a 20 unidades (Pequeno Evento / Mimo)</option>
+                            <option value="21 a 50 unidades (Empresarial)">21 a 50 unidades (Empresarial)</option>
+                            <option value="Mais de 50 unidades (Atacado)">Mais de 50 unidades (Atacado / Corporativo)</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Detalhes ou Nome para Gravação (Opcional)</label>
+                        <input type="text" x-model="simDetails" placeholder="Ex: Nome Clara, Frase para o Papai, Logo da Empresa..."
+                               class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange">
+                    </div>
+
+                    <div class="md:col-span-2 pt-2">
+                        <button type="submit"
+                                class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-4 rounded-xl text-base shadow-xl flex items-center justify-center gap-3 orange-glow transition-all">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            Enviar Orçamento Pronto no WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS DA STUDIO CZ -->
+    <section id="diferenciais" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest block">Por que escolher a Studio CZ?</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy mt-1">
+                    Compromisso com cada Detalhe e com a Comunidade de Santiago
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-orange transition-all duration-300 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-navy">Produção Local em Santiago</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Atendimento presencial na Rua dos Poetas, sem depender de entregas distantes ou prazos longos de frete.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-orange transition-all duration-300 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-brand-cyan flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-navy">Gravação Laser & 3D</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Maquinário de precisão para gravar cuias, copos, madeiras e imprimir peças tridimensionais exclusivas.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-orange transition-all duration-300 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-navy">Projetos Afetivos</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Ajudamos você a escolher as melhores fotos, frases e embalagens para presentear quem você ama de verdade.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-orange transition-all duration-300 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                        <i data-lucide="building" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-navy">Atendimento B2B / Empresas</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Emissão de orçamentos rápidos para empresas, escolas, faculdades e campanhas institucionais da região.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS E AVALIAÇÕES GOOGLE (5.0 STARS) -->
+    <section id="depoimentos" class="py-16 sm:py-20 bg-brand-navy text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest block">Google Avaliações</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-white mt-1">
+                        O que dizem os clientes do Studio CZ
+                    </h2>
+                </div>
+
+                <div class="flex items-center gap-3 bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700">
+                    <div class="flex text-amber-400">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <span class="font-bold text-sm text-white">5,0 / 5,0 no Google</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic">"Gostei muito dos produtos do StudioZ. Capricho em cada detalhe!"</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-orange font-bold flex items-center justify-center text-white text-xs">C</div>
+                        <div>
+                            <span class="font-bold text-sm text-white block">Cliente Satisfeito</span>
+                            <span class="text-[11px] text-slate-400 block">Avaliação no Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic">"Excelente atendimento e entrega rapidinho."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-cyan font-bold flex items-center justify-center text-slate-950 text-xs">M</div>
+                        <div>
+                            <span class="font-bold text-sm text-white block">Cliente de Santiago</span>
+                            <span class="text-[11px] text-slate-400 block">Avaliação no Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic">"A cuia gravada a laser ficou espetacular. Superou minhas expectativas para o presente de aniversário!"</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-emerald-500 font-bold flex items-center justify-center text-white text-xs">R</div>
+                        <div>
+                            <span class="font-bold text-sm text-white block">Rodrigo G.</span>
+                            <span class="text-[11px] text-slate-400 block">Santiago - RS</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO, HORÁRIOS E CONTATO -->
+    <section id="localizacao" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-orange font-extrabold text-xs uppercase tracking-widest block">Onde Estamos</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy leading-tight">
+                        Venha visitar nossa loja física em Santiago - RS
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-navy">Endereço Completo</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Rua dos Poetas, 1166 - Centro<br>Santiago - RS, CEP 97700-000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-sky-100 text-brand-cyan flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-navy">Horário de Funcionamento</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">
+                                    Segunda a Sexta: 08:30 às 12:00 e 13:30 às 18:00<br>
+                                    Sábado: 08:30 às 12:00 e 13:30 às 17:00
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-navy">Telefone & WhatsApp</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">
+                                    Telefone Fixo: (55) 3251-6054<br>
+                                    WhatsApp Direct: +55 (55) 9938-1134
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <a href="https://maps.google.com/?q=Rua+dos+Poetas+1166+Santiago+RS" target="_blank"
+                           class="bg-brand-navy hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-md">
+                            <i data-lucide="navigation" class="w-4 h-4 text-brand-cyan"></i>
+                            Abrir Rotas no Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MAPA OU CARD ILUSTRATIVO DE LOCALIZAÇÃO -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white border border-slate-200 rounded-3xl p-4 shadow-xl overflow-hidden relative">
+                        <div class="w-full h-[380px] rounded-2xl bg-slate-200 overflow-hidden relative">
+                            <!-- Google Maps Embed direcionado para Santiago RS -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.471465223034!2d-54.86903262351296!3d-29.180290192072133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95034a754b2bb389%3A0xb30d3221b0dc5652!2sR.%20dos%20Poetas%2C%201166%20-%20Centro%2C%20Santiago%20-%20RS%2C%2097700-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-navy text-slate-400 text-xs py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <img src="logomarcastudiocz.jpg" alt="Logo Studio CZ" class="w-10 h-10 object-contain bg-white rounded-lg p-1">
+                    <div>
+                        <span class="text-white font-extrabold text-base font-heading block">Studio CZ Personalizados</span>
+                        <span class="text-slate-400 text-xs">Santiago - Rio Grande do Sul</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-orange text-white flex items-center justify-center transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.facebook.com/p/Studio-z-personalizados-61586807782396/" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-orange text-white flex items-center justify-center transition-colors">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                    <a :href="getWhatsAppLink('Olá Studio CZ!')" target="_blank" class="w-9 h-9 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+                <p>© 2026 Studio CZ Personalizados. Todos os direitos reservados. Santiago/RS.</p>
+                <p>Brindes, Canecas, Cuias, Impressão 3D, Artesanatos e Presentes Afetivos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DE WHATSAPP -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a :href="getWhatsAppLink('Olá Studio CZ! Vim pelo site e gostaria de tirar uma dúvida.')" target="_blank"
+           class="bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 pulse-subtle group relative">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            
+            <!-- Tooltip explicativo -->
+            <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-xl whitespace-nowrap shadow-lg border border-slate-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                Atendimento Instantâneo
+            </span>
+        </a>
+    </div>
+
+    <!-- SCRIPT DE INTERATIVIDADE ALPINE.JS E LÓGICA DA APLICAÇÃO -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('studioApp', () => ({
+                mobileMenuOpen: false,
+                categoryFilter: 'todos',
+                activeSlide: 0,
+                phoneWhatsApp: '555599381134', // Número com código do WhatsApp Studio CZ
+
+                // Formulário Simulador
+                simProduct: 'Cuias Gravadas a Laser',
+                simQuantity: '1 a 5 unidades (Presente Pessoal)',
+                simDetails: '',
+
+                slides: [
+                    {
+                        tag: 'Presentes Afetivos',
+                        title: 'Quadros Polaroid & Lembranças com História',
+                        description: 'Reviva momentos marcantes com nossos quadros personalizados com prendedores, datas especiais e fotos polaroid de alta qualidade.',
+                        image: 'studiocz2.jpg',
+                        targetSection: '#presentes-afetivos'
+                    },
+                    {
+                        tag: 'Linha Térmica & Cerâmica',
+                        title: 'Canecas, Copos Térmicos & Cuias a Laser',
+                        description: 'Impressão fotográfica brilhante e gravação a laser permanente em copos e cuias gaúchas com dizeres únicos.',
+                        image: 'studiocz3.jpg',
+                        targetSection: '#canecas-copos'
+                    },
+                    {
+                        tag: 'Kits Regionais',
+                        title: 'Caixas de Madeira MDF com Erva-Mate Local',
+                        description: 'Presentes completos montados em Santiago com chocolates finos, cuia e embalagens preparadas artesanalmente.',
+                        image: 'studiocz5.jpg',
+                        targetSection: '#kits-corporativos'
+                    },
+                    {
+                        tag: 'Tecnologia 3D',
+                        title: 'Chaveiros 3D & Acessórios Customizados',
+                        description: 'Modelagem tridimensional de logotipos, nomes e chaveiros resistentes para datas como Dia dos Pais, Profissões e SIPAT.',
+                        image: 'studiocz6.jpg',
+                        targetSection: '#brindes-chaveiros'
+                    },
+                    {
+                        tag: 'Institucional & Eventos',
+                        title: 'Brindes para Campanhas & Setembro Amarelo',
+                        description: 'Desenvolvimento completo de mimos institucionais, toalhas, cartões, caixas de chá e materiais personalizados para empresas.',
+                        image: 'studiocz8.jpg',
+                        targetSection: '#campanhas'
+                    }
+                ],
+
+                init() {
+                    this.startCarouselAutoPlay();
+                    setTimeout(() => lucide.createIcons(), 100);
+                },
+
+                nextSlide() {
+                    this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+                },
+
+                prevSlide() {
+                    this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
+                },
+
+                startCarouselAutoPlay() {
+                    setInterval(() => {
+                        this.nextSlide();
+                    }, 6000);
+                },
+
+                getWhatsAppLink(text) {
+                    return `https://wa.me/${this.phoneWhatsApp}?text=${encodeURIComponent(text)}`;
+                },
+
+                sendSimulatedBudget() {
+                    let msg = `*Orçamento Rápido via Site Studio CZ*\n\n`;
+                    msg += `• *Produto:* ${this.simProduct}\n`;
+                    msg += `• *Quantidade:* ${this.simQuantity}\n`;
+                    if (this.simDetails.trim() !== '') {
+                        msg += `• *Detalhes/Gravação:* ${this.simDetails}\n`;
+                    }
+                    msg += `\n*Gostaria de saber valores e prazo de entrega em Santiago RS!*`;
+                    
+                    window.open(this.getWhatsAppLink(msg), '_blank');
+                },
+
+                // Verificação Dinâmica de Horário em Santiago RS
+                get isOpenNow() {
+                    const now = new Date();
+                    const day = now.getDay(); // 0: Dom, 1: Seg ... 6: Sáb
+                    const minutes = now.getHours() * 60 + now.getMinutes();
+
+                    // Segunda a Sexta (1 a 5)
+                    if (day >= 1 && day <= 5) {
+                        const mMorningStart = 8 * 60 + 30; // 08:30
+                        const mMorningEnd = 12 * 60;        // 12:00
+                        const mAfternoonStart = 13 * 60 + 30; // 13:30
+                        const mAfternoonEnd = 18 * 60;      // 18:00
+                        
+                        return (minutes >= mMorningStart && minutes <= mMorningEnd) || 
+                               (minutes >= mAfternoonStart && minutes <= mAfternoonEnd);
+                    }
+                    // Sábado (6)
+                    if (day === 6) {
+                        const sMorningStart = 8 * 60 + 30;  // 08:30
+                        const sMorningEnd = 12 * 60;        // 12:00
+                        const sAfternoonStart = 13 * 60 + 30; // 13:30
+                        const sAfternoonEnd = 17 * 60;      // 17:00
+
+                        return (minutes >= sMorningStart && minutes <= sMorningEnd) || 
+                               (minutes >= sAfternoonStart && minutes <= sAfternoonEnd);
+                    }
+                    // Domingo
+                    return false;
+                },
+
+                get hoursText() {
+                    const now = new Date();
+                    const day = now.getDay();
+                    if (day === 0) return 'Abre Seg às 08:30';
+                    return 'Atendimento Hoje na Loja Física';
+                }
+            }));
+        });
+    </script>
+</body>
+</html>
