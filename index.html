@@ -1034,6 +1034,31 @@
                     this.updateCountdown();
                     setInterval(() => this.updateCountdown(), 1000);
                     setTimeout(() => lucide.createIcons(), 100);
+
+                    // Tentar acionar o som de Natal ao abrir o website
+                    this.attemptAutoPlayMusic();
+                },
+
+                // REPRODUÇÃO AUTOMÁTICA AO CARREGAR O SITE (COM TRATAMENTO INTELIGENTE DE AUTOPLAY DO NAVEGADOR)
+                attemptAutoPlayMusic() {
+                    // Tentar reproduzir imediatamente
+                    this.startMusic();
+
+                    // Caso o navegador bloqueie áudio não-silenciado antes de interação, ativa no primeiro toque/clique
+                    const unlockAudio = () => {
+                        if (!this.isMusicPlaying) {
+                            this.startMusic();
+                        }
+                        window.removeEventListener('click', unlockAudio);
+                        window.removeEventListener('touchstart', unlockAudio);
+                        window.removeEventListener('keydown', unlockAudio);
+                        window.removeEventListener('scroll', unlockAudio);
+                    };
+
+                    window.addEventListener('click', unlockAudio, { once: true });
+                    window.addEventListener('touchstart', unlockAudio, { once: true });
+                    window.addEventListener('keydown', unlockAudio, { once: true });
+                    window.addEventListener('scroll', unlockAudio, { once: true });
                 },
 
                 // SINTETIZADOR WEB AUDIO API DE MÚSICA NATALINA INSTRUMENTAL (100% LIVRE DE DIREITOS AUTORAIS)
