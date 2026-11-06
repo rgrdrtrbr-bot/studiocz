@@ -62,6 +62,14 @@
             box-shadow: 0 10px 30px -5px rgba(220, 38, 38, 0.4);
         }
 
+        /* Gradiente Oficial e Brilhante do Instagram */
+        .bg-instagram-official {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+        .ig-glow {
+            box-shadow: 0 8px 25px -4px rgba(214, 36, 159, 0.5);
+        }
+
         /* Animação suave de Neve caindo */
         .snowflake {
             position: fixed;
@@ -172,13 +180,15 @@
                 <a href="#localizacao" class="hover:text-natal-goldLight transition-colors">Contato</a>
             </nav>
 
-            <!-- CTA WHATSAPP & INSTAGRAM HEADER -->
+            <!-- CTA WHATSAPP & INSTAGRAM HEADER ORIGINAL -->
             <div class="hidden sm:flex items-center gap-3.5">
-                <!-- Ícone Oficial do Instagram no Topo à Direita -->
+                <!-- Ícone Oficial Original do Instagram com Cores Reais e Brilho High-End -->
                 <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" rel="noopener noreferrer"
                    title="Siga a Studio CZ no Instagram @studiozpersonalizados_"
-                   class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-lg hover:scale-108 transition-all duration-200 border border-white/30 hover:shadow-pink-500/40">
-                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                   class="w-11 h-11 rounded-2xl bg-instagram-official text-white flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 border-2 border-white/60 ig-glow">
+                    <svg class="w-6 h-6 fill-current text-white drop-shadow-md" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
                 </a>
 
                 <a :href="getWhatsAppLink('Olá Studio CZ! Quero ver o catálogo de Natal e fazer um pedido.')" target="_blank"
@@ -203,6 +213,14 @@
             <a href="#produtos" @click="mobileMenuOpen = false" class="block text-white hover:text-natal-goldLight py-1.5 font-medium">🛍️ Mostruário Natalino</a>
             <a href="#simulador" @click="mobileMenuOpen = false" class="block text-white hover:text-natal-goldLight py-1.5 font-medium">🎅 Montar Pedido de Natal</a>
             <a href="#localizacao" @click="mobileMenuOpen = false" class="block text-white hover:text-natal-goldLight py-1.5 font-medium">📍 Loja Física Santiago RS</a>
+            
+            <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" class="flex items-center justify-center gap-2 bg-instagram-official text-white font-extrabold py-2.5 rounded-xl text-xs shadow-md border border-white/40">
+                <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Siga @studiozpersonalizados_</span>
+            </a>
+
             <button @click="toggleMusic()" class="w-full text-center bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl text-xs mb-2 shadow-md">
                 <span x-text="isMusicPlaying ? '⏸️ Pausar Música Natalina' : '🎵 Tocar Música Instrumental de Natal'"></span>
             </button>
@@ -370,7 +388,7 @@
             <!-- GRID DE VÍDEOS OFICIAIS COM SOM NATALINO DE SINTETIZADOR EMBUTIDO -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- VÍDEO 1: FACHADA & CHEGADA (video1.MOV / video1.mp4) -->
+                <!-- VÍDEO 1: FACHADA & CHEGADA -->
                 <div class="bg-slate-900 rounded-3xl border border-natal-gold/30 overflow-hidden shadow-2xl flex flex-col justify-between group">
                     <div class="relative h-[420px] bg-slate-950 p-3 flex items-center justify-center">
                         <video class="w-full h-full object-contain rounded-2xl cursor-pointer" 
@@ -388,11 +406,11 @@
                     </div>
                     <div class="p-6 space-y-2 bg-slate-900 border-t border-natal-gold/20">
                         <h3 class="font-heading font-extrabold text-lg text-white">Fachada & Recepção</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Localização privilegiada no centro de Santiago, com acesso fácil e vitrines repletas de novidades. Clique no vídeo para ativar o som festivo!</p>
+                        <p class="text-xs text-slate-400 leading-relaxed">Localização privilegiada no centro de Santiago, com acesso fácil e vitrines repletas de novidades.</p>
                     </div>
                 </div>
 
-                <!-- VÍDEO 2: LOGO 3D & ESCADA DE NATAL (video2.MOV / video2.mp4) -->
+                <!-- VÍDEO 2: LOGO 3D & ESCADA DE NATAL -->
                 <div class="bg-slate-900 rounded-3xl border border-natal-gold/30 overflow-hidden shadow-2xl flex flex-col justify-between group">
                     <div class="relative h-[420px] bg-slate-950 p-3 flex items-center justify-center">
                         <video class="w-full h-full object-contain rounded-2xl cursor-pointer" 
@@ -414,7 +432,7 @@
                     </div>
                 </div>
 
-                <!-- VÍDEO 3: APRESENTAÇÃO COMPLETA DA LOJA (studiocz1.mp4 / studiocz1.MOV) -->
+                <!-- VÍDEO 3: APRESENTAÇÃO COMPLETA DA LOJA -->
                 <div class="bg-slate-900 rounded-3xl border border-natal-gold/30 overflow-hidden shadow-2xl flex flex-col justify-between group">
                     <div class="relative h-[420px] bg-slate-950 p-3 flex items-center justify-center">
                         <video class="w-full h-full object-contain rounded-2xl cursor-pointer" 
@@ -471,14 +489,12 @@
                     
                     <template x-for="(slide, index) in slides" :key="index">
                         <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-12 min-h-[440px] items-center">
-                            <!-- Imagem do Kit (Enquadramento Completo) -->
                             <div class="lg:col-span-7 h-72 sm:h-96 lg:h-full relative overflow-hidden bg-slate-950 flex items-center justify-center p-4">
                                 <img :src="slide.image" 
                                      @error="$el.src='https://placehold.co/800x600/7F1D1D/FBBF24?text=' + encodeURIComponent(slide.title)"
                                      :alt="slide.title" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500">
                             </div>
                             
-                            <!-- Conteúdo do Slide -->
                             <div class="lg:col-span-5 p-6 sm:p-10 space-y-4">
                                 <span class="px-3.5 py-1 rounded-full bg-natal-red/40 border border-natal-gold/40 text-natal-goldLight text-xs font-bold uppercase tracking-wider inline-block" x-text="slide.tag"></span>
                                 <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white" x-text="slide.title"></h3>
@@ -514,12 +530,12 @@
         </div>
     </section>
 
-    <!-- MOSTRUÁRIO COMPLETO DE PRODUTOS COM AS NOVAS FOTOS (3 POR LINHA NO DESKTOP) -->
+    <!-- MOSTRUÁRIO COMPLETO DE PRODUTOS (6 CARDS) -->
     <section id="produtos" class="py-16 sm:py-24 bg-slate-100 text-slate-800 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
             
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <span class="text-natal-red font-extrabold text-xs uppercase tracking-widest block">🛍️ Catalógo & Mostruário de Natal</span>
+                <span class="text-natal-red font-extrabold text-xs uppercase tracking-widest block">🛍️ Catálogo & Mostruário de Natal</span>
                 <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900">
                     Presentes Personalizados que Emocionam
                 </h2>
@@ -557,161 +573,131 @@
                 </button>
             </div>
 
-            <!-- GRID DE PRODUTOS - EXATAMENTE 3 POR LINHA NO DESKTOP COM ENQUADRAMENTO PERFEITO DA FOTO -->
+            <!-- GRID DE 6 PRODUTOS -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- CARD 1: VITRINE DE BEBIDAS E GARRAFAS (NOVA FOTO studiocz9.jpg) -->
+                <!-- CARD 1 -->
                 <div id="garrafas-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'cuias-canecas'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
-                            <img src="studiocz9.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/991B1B/FFF?text=Garrafas+e+Tacas'" 
-                                 alt="Garrafas Térmicas e Taças Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-natal-red text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow border border-yellow-300 z-10">
-                                🎄 Coleção de Festas
-                            </span>
+                            <img src="studiocz9.jpg" onerror="this.src='https://placehold.co/600x400/991B1B/FFF?text=Garrafas+e+Tacas'" alt="Garrafas" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-natal-red text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow border border-yellow-300 z-10">🎄 Coleção de Festas</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-heading font-extrabold text-xl text-slate-900">Garrafas Térmicas & Taças de Brinde</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Cores exclusivas, garrafas para chopes/águas e taças personalizadas para brindar a chegada do Ano Novo com estilo.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Cores exclusivas, garrafas para chopes/águas e taças personalizadas para brindar o Ano Novo.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero encomendar Garrafa Térmica ou Taças para o Natal/Ano Novo.')" target="_blank"
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero encomendar Garrafa Térmica ou Taças.')" target="_blank"
                            class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            Encomendar no WhatsApp
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 2: PRATELEIRA DE MUG & ALMOFADAS (NOVA FOTO studiocz10.jpg) -->
+                <!-- CARD 2 -->
                 <div id="almofadas-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'amigo-secreto'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
-                            <img src="studiocz10.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/D97706/FFF?text=Almofadas+e+Canecas'" 
-                                 alt="Canecas e Almofadas Personalizadas Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-natal-gold text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
-                                ✨ Mimos Acolhedores
-                            </span>
+                            <img src="studiocz10.jpg" onerror="this.src='https://placehold.co/600x400/D97706/FFF?text=Almofadas+e+Canecas'" alt="Almofadas" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-natal-gold text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">✨ Mimos Acolhedores</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-heading font-extrabold text-xl text-slate-900">Almofadas Festivas & Canecas Especiais</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Almofadinhas temáticas de Natal e canecas com alças de coração para encantar no Amigo Secreto da família.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Almofadinhas temáticas de Natal e canecas com alças de coração para Amigo Secreto.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero ver opções de Almofadas e Canecas para presente.')" target="_blank"
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero ver opções de Almofadas e Canecas.')" target="_blank"
                            class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            Encomendar no WhatsApp
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 3: KITS NATALINOS EM CAIXA MDF (studiocz5.jpg) -->
+                <!-- CARD 3 -->
                 <div id="kits-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'kits-natal'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
-                            <img src="studiocz5.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/065F46/FFF?text=Kit+MDF+Natal'" 
-                                 alt="Kit Especial Natal em MDF Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-natal-red text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow border border-yellow-300 z-10">
-                                🎁 O Mais Pedido
-                            </span>
+                            <img src="studiocz5.jpg" onerror="this.src='https://placehold.co/600x400/065F46/FFF?text=Kit+MDF+Natal'" alt="Kit MDF" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-natal-red text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow border border-yellow-300 z-10">🎁 O Mais Pedido</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-heading font-extrabold text-xl text-slate-900">Kit Caixa MDF Especial de Natal</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Caixa artesanal em MDF gravada, caneca comemorativa personalizada, chocolates finos e laço natalino de presente.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Caixa artesanal em MDF gravada, caneca personalizada, chocolates finos e laço de presente.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Quero encomendar o Kit Caixa MDF Especial de Natal.')" target="_blank"
                            class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            Encomendar no WhatsApp
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 4: QUADROS AFETIVOS POLAROID (studiocz2.jpg) -->
+                <!-- CARD 4 -->
                 <div id="polaroid-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'amigo-secreto'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
-                            <img src="studiocz2.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/7F1D1D/FFF?text=Quadro+Polaroid'" 
-                                 alt="Quadro Afetivo de Natal Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
-                                ❤️ Memórias em Foto
-                            </span>
+                            <img src="studiocz2.jpg" onerror="this.src='https://placehold.co/600x400/7F1D1D/FFF?text=Quadro+Polaroid'" alt="Polaroid" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">❤️ Memórias em Foto</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-heading font-extrabold text-xl text-slate-900">Quadro Afetivo Família & Momentos</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Eternize as lembranças do ano em fotos estilo Polaroid com moldura em madeira nobre e prendedores artesanais.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Eternize as lembranças do ano em fotos estilo Polaroid com moldura em madeira nobre.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de fazer o Quadro Afetivo de Fotos para o Natal.')" target="_blank"
                            class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            Encomendar no WhatsApp
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 5: CUIAS GRAVADAS E LINHA TRADICIONAL (studiocz1.jpg) -->
+                <!-- CARD 5 -->
                 <div id="cuias-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'cuias-canecas' || categoryFilter === 'corporativo'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
-                            <img src="studiocz1.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/D97706/FFF?text=Cuias+Laser'" 
-                                 alt="Cuias Gravadas e Squeezes Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-amber-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
-                                🪵 Tradición Gaúcha
-                            </span>
+                            <img src="studiocz1.jpg" onerror="this.src='https://placehold.co/600x400/D97706/FFF?text=Cuias+Laser'" alt="Cuias" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-amber-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">🪵 Tradição Gaúcha</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-heading font-extrabold text-xl text-slate-900">Cuias Gravadas a Laser & Garrafas</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Cuias de chimarrão com gravura a laser permanente, bombas e garrafas térmicas com o nome ou marca para o Fim de Ano.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Cuias de chimarrão com gravura a laser permanente e garrafas térmicas customizadas.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de cotar Cuia Gravada a Laser para presente.')" target="_blank"
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de cotar Cuia Gravada a Laser.')" target="_blank"
                            class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            Encomendar no WhatsApp
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 6: KITS CORPORATIVOS ENCERRAMENTO DE ANO (studiocz8.jpg) -->
+                <!-- CARD 6 -->
                 <div id="corporativo-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'corporativo'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
-                            <img src="studiocz8.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/0F172A/FFF?text=Kits+Corporativos'" 
-                                 alt="Kits Corporativos Fim de Ano Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
-                                🏢 Brindes de Empresa
-                            </span>
+                            <img src="studiocz8.jpg" onerror="this.src='https://placehold.co/600x400/0F172A/FFF?text=Kits+Corporativos'" alt="Corporativo" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">🏢 Brindes de Empresa</span>
                         </div>
                         <div class="p-6 space-y-2">
                             <h3 class="font-heading font-extrabold text-xl text-slate-900">Kits para Colaboradores & Eventos</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Mimos institucionais para festas de encerramento, toalhas bordadas, caixas de chá e lembranças de Boas Festas.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Mimos institucionais para festas de encerramento, toalhas bordadas e brindes corporativos.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero proposta de Kits Natalinos para minha empresa em Santiago.')" target="_blank"
+                        <a :href="getWhatsAppLink('Olá Studio CZ! Quero proposta de Kits Natalinos para minha empresa.')" target="_blank"
                            class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            Encomendar no WhatsApp
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
@@ -733,7 +719,6 @@
                 </div>
 
                 <form @submit.prevent="sendNatalSimulatedBudget()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
                     <div>
                         <label class="block text-xs font-bold text-natal-goldLight mb-1">Para quem é o presente?</label>
                         <select x-model="simTarget" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-natal-gold">
@@ -775,56 +760,39 @@
         </div>
     </section>
 
-    <!-- SEÇÃO ATELIÊ FÍSICO COM FACHADA E DECORAÇÃO DA ESCADA COM GNOMOS -->
+    <!-- SEÇÃO ATELIÊ FÍSICO (SOBRE) -->
     <section id="sobre" class="py-16 sm:py-24 bg-white text-slate-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- GALERIA DE FOTOS FÍSICAS DA LOJA (ENQUADRAMENTO COMPLETO COM BACKGROUND HARMONIZADO) -->
                 <div class="lg:col-span-6 order-2 lg:order-1 space-y-4">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-950 p-2 h-64 flex items-center justify-center group">
-                            <img src="fachada2.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/7F1D1D/FFF?text=Fachada+Studio+CZ'" 
-                                 alt="Entrada Studio CZ Santiago" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] text-white font-bold z-10">
-                                📍 Fachada Rua dos Poetas
-                            </div>
+                            <img src="fachada2.jpg" onerror="this.src='https://placehold.co/600x400/7F1D1D/FFF?text=Fachada+Studio+CZ'" alt="Fachada" class="w-full h-full object-contain rounded-xl">
+                            <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] text-white font-bold z-10">📍 Rua dos Poetas</div>
                         </div>
                         <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-950 p-2 h-64 flex items-center justify-center group">
-                            <img src="studiocz11.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/065F46/FFF?text=Decoracao+Natal'" 
-                                 alt="Decoração de Natal Escada Studio CZ" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] text-white font-bold z-10">
-                                🎅 Gnomos de Natal
-                            </div>
+                            <img src="studiocz11.jpg" onerror="this.src='https://placehold.co/600x400/065F46/FFF?text=Decoracao+Natal'" alt="Gnomos" class="w-full h-full object-contain rounded-xl">
+                            <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] text-white font-bold z-10">🎅 Gnomos de Natal</div>
                         </div>
                     </div>
 
                     <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-950 p-2 h-52 flex items-center justify-center group">
-                        <img src="studiocz12.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x300/D97706/FFF?text=Marca+Studio+CZ'" 
-                             alt="Logo 3D Studio CZ com Guirlanda" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
+                        <img src="studiocz12.jpg" onerror="this.src='https://placehold.co/600x300/D97706/FFF?text=Marca+Studio+CZ'" alt="Marca 3D" class="w-full h-full object-contain rounded-xl">
                         <div class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs text-white font-bold flex items-center gap-2 z-10">
                             <span>✨</span> Marca Registrada Studio CZ Personalizados
                         </div>
                     </div>
                 </div>
 
-                <!-- TEXTO SOBRE A EXPERIÊNCIA DE COMPRA -->
                 <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
                     <span class="text-natal-red font-extrabold text-xs uppercase tracking-widest block">Atendimento Local em Santiago</span>
                     <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 leading-tight">
                         Confecção própria, carinho em cada detalhe e entrega garantida.
                     </h2>
-                    
                     <p class="text-slate-600 leading-relaxed text-base">
                         Na <strong>Studio CZ Personalizados</strong>, sabemos que um presente de Natal carrega história e sentimento. Por isso, preparamos tudo localmente em nosso ateliê na <strong>Rua dos Poetas, 1166</strong> em Santiago RS.
                     </p>
-                    <p class="text-slate-600 leading-relaxed text-base">
-                        Oferecemos o suporte presencial completo: venha tomar um chimarrão com a gente, veja o mostruário de taças, garrafas e cuias gravadas a laser, e encomende com tranquilidade!
-                    </p>
-
                     <div class="grid grid-cols-2 gap-4 pt-2">
                         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                             <span class="font-heading font-extrabold text-2xl text-natal-red block">100% Local</span>
@@ -835,7 +803,6 @@
                             <span class="text-xs text-slate-500 font-medium">Avaliação Máxima no Google</span>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -894,13 +861,11 @@
                     <div class="pt-2">
                         <a href="https://maps.google.com/?q=Rua+dos+Poetas+1166+Santiago+RS" target="_blank"
                            class="bg-gradient-to-r from-natal-gold to-amber-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-xs inline-flex items-center gap-2 shadow-lg">
-                            <i data-lucide="navigation" class="w-4 h-4"></i>
-                            Traçar Rota no Google Maps
+                            <i data-lucide="navigation" class="w-4 h-4"></i> Traçar Rota no Google Maps
                         </a>
                     </div>
                 </div>
 
-                <!-- MAPA EMBEDDED -->
                 <div class="lg:col-span-7">
                     <div class="bg-slate-950 border border-natal-gold/30 rounded-3xl p-3 shadow-2xl">
                         <div class="w-full h-[380px] rounded-2xl overflow-hidden">
@@ -919,28 +884,24 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-6 text-center sm:text-left">
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                 
-                <!-- LOGO + ÍCONE INSTAGRAM AO LADO DO SÍMBOLO DA LOGOMARCA À ESQUERDA -->
-                <div class="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
-                    <img src="logomarcastudiocz.jpg" 
-                         onerror="this.onerror=null;this.src='https://placehold.co/200x200/991B1B/FBBF24?text=Studio+CZ'" 
-                         alt="Logo Studio CZ" class="w-9 h-9 object-contain bg-white rounded-lg p-1">
+                <div class="flex items-center gap-3.5 flex-wrap justify-center sm:justify-start">
+                    <img src="logomarcastudiocz.jpg" onerror="this.src='https://placehold.co/200x200/991B1B/FBBF24?text=Studio+CZ'" alt="Logo" class="w-10 h-10 object-contain bg-white rounded-xl p-1 shadow-md">
                     
-                    <!-- Ícone Instagram ao lado do Símbolo da Marca -->
                     <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" rel="noopener noreferrer"
-                       title="Siga-nos no Instagram @studiozpersonalizados_"
-                       class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-md hover:scale-110 transition-all border border-white/30">
-                        <i data-lucide="instagram" class="w-4.5 h-4.5"></i>
+                       class="w-10 h-10 rounded-2xl bg-instagram-official text-white flex items-center justify-center shadow-lg hover:scale-110 transition-all border-2 border-white/60 ig-glow">
+                        <svg class="w-5.5 h-5.5 fill-current text-white drop-shadow-md" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </svg>
                     </a>
 
                     <span class="text-white font-extrabold text-sm font-heading">Studio CZ Personalizados • Especial de Natal</span>
                 </div>
 
                 <div class="flex gap-3">
-                    <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-natal-red">
-                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" class="w-9 h-9 rounded-2xl bg-instagram-official text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></svg>
                     </a>
-                    <a href="https://www.facebook.com/p/Studio-z-personalizados-61586807782396/" target="_blank" class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-natal-red">
-                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    <a href="https://www.facebook.com/p/Studio-z-personalizados-61586807782396/" target="_blank" class="w-9 h-9 rounded-2xl bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
                     </a>
                 </div>
             </div>
@@ -948,7 +909,7 @@
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE DE WHATSAPP COM ÍCONE FESTIVO -->
+    <!-- WHATSAPP FLUTUANTE -->
     <div class="fixed bottom-6 right-6 z-50">
         <a :href="getWhatsAppLink('Olá Studio CZ! Quero saber sobre encomendas de Natal.')" target="_blank"
            class="bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 border-2 border-yellow-300 relative group">
@@ -957,7 +918,7 @@
         </a>
     </div>
 
-    <!-- SCRIPT LÓGICA ALPINE.JS COM SINTETIZADOR WEB AUDIO DE MÚSICA NATALINA SEM DIREITOS AUTORAIS -->
+    <!-- SCRIPT ALPINE.JS E ÁUDIO -->
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('studioNatalApp', () => ({
@@ -969,7 +930,6 @@
                 audioCtx: null,
                 musicInterval: null,
 
-                // Simulador Natalino
                 simTarget: 'Amigo Secreto (Trabalho/Amigos)',
                 simProduct: 'Kit Especial em Caixa MDF com Caneca',
                 simDetails: '',
@@ -1012,9 +972,26 @@
                     this.updateCountdown();
                     setInterval(() => this.updateCountdown(), 1000);
                     setTimeout(() => lucide.createIcons(), 100);
+                    this.attemptAutoPlayMusic();
                 },
 
-                // SINTETIZADOR WEB AUDIO API DE MÚSICA NATALINA INSTRUMENTAL (100% LIVRE DE DIREITOS AUTORAIS)
+                attemptAutoPlayMusic() {
+                    this.startMusic();
+                    const unlockAudio = () => {
+                        if (!this.isMusicPlaying) {
+                            this.startMusic();
+                        }
+                        window.removeEventListener('click', unlockAudio);
+                        window.removeEventListener('touchstart', unlockAudio);
+                        window.removeEventListener('keydown', unlockAudio);
+                        window.removeEventListener('scroll', unlockAudio);
+                    };
+                    window.addEventListener('click', unlockAudio, { once: true });
+                    window.addEventListener('touchstart', unlockAudio, { once: true });
+                    window.addEventListener('keydown', unlockAudio, { once: true });
+                    window.addEventListener('scroll', unlockAudio, { once: true });
+                },
+
                 toggleMusic() {
                     if (this.isMusicPlaying) {
                         this.stopMusic();
@@ -1034,8 +1011,6 @@
                         }
 
                         this.isMusicPlaying = true;
-
-                        // Melodia Suave de Natal (Jingle Bells / Caixinha de Música Instrumental)
                         const notes = [
                             { f: 659.25, d: 0.3 }, { f: 659.25, d: 0.3 }, { f: 659.25, d: 0.6 },
                             { f: 659.25, d: 0.3 }, { f: 659.25, d: 0.3 }, { f: 659.25, d: 0.6 },
@@ -1048,28 +1023,23 @@
                         let noteIdx = 0;
                         const playNextNote = () => {
                             if (!this.isMusicPlaying || !this.audioCtx) return;
-
                             const current = notes[noteIdx];
                             const osc = this.audioCtx.createOscillator();
                             const gain = this.audioCtx.createGain();
 
-                            // Timbre tipo Sino/Celesta de Caixinha de Música
                             osc.type = 'sine';
                             osc.frequency.setValueAtTime(current.f, this.audioCtx.currentTime);
-
                             gain.gain.setValueAtTime(0.08, this.audioCtx.currentTime);
                             gain.gain.exponentialRampToValueAtTime(0.0001, this.audioCtx.currentTime + current.d);
 
                             osc.connect(gain);
                             gain.connect(this.audioCtx.destination);
-
                             osc.start();
                             osc.stop(this.audioCtx.currentTime + current.d);
 
                             noteIdx = (noteIdx + 1) % notes.length;
                             this.musicInterval = setTimeout(playNextNote, current.d * 1000 + 50);
                         };
-
                         playNextNote();
                     } catch (e) {
                         console.log('Audio Context Error', e);
@@ -1116,16 +1086,10 @@
                     window.open(this.getWhatsAppLink(msg), '_blank');
                 },
 
-                // Lógica do Contador para o Natal (25 de Dezembro)
                 updateCountdown() {
                     const now = new Date();
-                    let currentYear = now.getFullYear();
-                    let christmasDate = new Date(currentYear, 11, 25, 0, 0, 0); // 25 de Dezembro
-
-                    if (now > christmasDate) {
-                        christmasDate = new Date(currentYear + 1, 11, 25, 0, 0, 0);
-                    }
-
+                    let christmasDate = new Date(now.getFullYear(), 11, 25, 0, 0, 0);
+                    if (now > christmasDate) christmasDate = new Date(now.getFullYear() + 1, 11, 25, 0, 0, 0);
                     const diff = christmasDate - now;
 
                     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -1143,13 +1107,8 @@
                     const now = new Date();
                     const day = now.getDay();
                     const minutes = now.getHours() * 60 + now.getMinutes();
-
-                    if (day >= 1 && day <= 5) {
-                        return (minutes >= 510 && minutes <= 720) || (minutes >= 810 && minutes <= 1080);
-                    }
-                    if (day === 6) {
-                        return (minutes >= 510 && minutes <= 720) || (minutes >= 810 && minutes <= 1020);
-                    }
+                    if (day >= 1 && day <= 5) return (minutes >= 510 && minutes <= 720) || (minutes >= 810 && minutes <= 1080);
+                    if (day === 6) return (minutes >= 510 && minutes <= 720) || (minutes >= 810 && minutes <= 1020);
                     return false;
                 }
             }));
