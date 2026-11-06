@@ -529,7 +529,7 @@
         </div>
     </section>
 
-    <!-- MOSTRUÁRIO COMPLETO DE PRODUTOS COM AS NOVAS FOTOS -->
+    <!-- MOSTRUÁRIO COMPLETO DE PRODUTOS COM ALTURA UNIFORME E PROPORCIONAL -->
     <section id="produtos" class="py-16 sm:py-24 bg-slate-100 text-slate-800 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
             
@@ -572,18 +572,18 @@
                 </button>
             </div>
 
-            <!-- GRID DE PRODUTOS COM AS NOVAS FOTOS -->
+            <!-- GRID DE PRODUTOS COM IMAGENS PADRONIZADAS E IMPECÁVEIS -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- CARD 1: KITS DE FESTA CARROS (IMG_2325.jpg) -->
+                <!-- CARD 1: KITS DE FESTA CARROS -->
                 <div id="kits-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'amigo-secreto' || categoryFilter === 'kits-natal'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
+                        <div class="relative h-80 sm:h-96 overflow-hidden bg-slate-950 flex items-center justify-center p-4 border-b border-slate-200">
                             <img src="IMG_2325.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/991B1B/FFF?text=Lembrancinhas+Carros'" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/991B1B/FFF?text=Lembrancinhas+Carros'" 
                                  alt="Lembrancinhas Tema Carros" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-natal-red text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow border border-yellow-300 z-10">
+                            <span class="absolute top-4 right-4 bg-natal-red text-white text-[11px] font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow border border-yellow-300 z-10">
                                 🏎️ Lembrancinhas Infantis
                             </span>
                         </div>
@@ -594,22 +594,22 @@
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Quero encomendar Lembrancinhas Personalizadas Tema Carros.')" target="_blank"
-                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
+                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 2: COPOS PERSONALIZADOS ALICE (IMG_2568.jpg) -->
+                <!-- CARD 2: COPOS PERSONALIZADOS ALICE -->
                 <div id="almofadas-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'amigo-secreto'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
+                        <div class="relative h-80 sm:h-96 overflow-hidden bg-slate-950 flex items-center justify-center p-4 border-b border-slate-200">
                             <img src="IMG_2568.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/D97706/FFF?text=Copos+Alice'" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/D97706/FFF?text=Copos+Alice'" 
                                  alt="Copos Long Drink Alice" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-purple-700 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
+                            <span class="absolute top-4 right-4 bg-purple-700 text-white text-[11px] font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow z-10">
                                 👑 Aniversários & Festas
                             </span>
                         </div>
@@ -620,22 +620,22 @@
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Quero ver opções de Copos Personalizados para festa.')" target="_blank"
-                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
+                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 3: KIT AFETIVO EXECUTIVO (IMG_2519.jpg) -->
+                <!-- CARD 3: KIT AFETIVO EXECUTIVO -->
                 <div id="kits-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'kits-natal' || categoryFilter === 'corporativo'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
+                        <div class="relative h-80 sm:h-96 overflow-hidden bg-slate-950 flex items-center justify-center p-4 border-b border-slate-200">
                             <img src="IMG_2519.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/065F46/FFF?text=Kit+Gestor+Personalizado'" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/065F46/FFF?text=Kit+Gestor+Personalizado'" 
                                  alt="Kit Caderno e Caneca" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-natal-red text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow border border-yellow-300 z-10">
+                            <span class="absolute top-4 right-4 bg-natal-red text-white text-[11px] font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow border border-yellow-300 z-10">
                                 🎁 Presente Executivo
                             </span>
                         </div>
@@ -646,22 +646,22 @@
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Quero encomendar o Kit Caderno e Caneca Personalizada.')" target="_blank"
-                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
+                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 4: COPO TÉRMICO BRUTTIS & HEINEKEN (IMG_2377.jpg) -->
+                <!-- CARD 4: COPO TÉRMICO BRUTTIS & HEINEKEN -->
                 <div id="garrafas-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'cuias-canecas' || categoryFilter === 'corporativo'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
+                        <div class="relative h-80 sm:h-96 overflow-hidden bg-slate-950 flex items-center justify-center p-4 border-b border-slate-200">
                             <img src="IMG_2377.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/7F1D1D/FFF?text=Copo+Termico+Laser'" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/7F1D1D/FFF?text=Copo+Termico+Laser'" 
                                  alt="Copo Termico Bruttis e Heineken" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
+                            <span class="absolute top-4 right-4 bg-slate-900 text-white text-[11px] font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow z-10">
                                 🍻 Gravação a Laser
                             </span>
                         </div>
@@ -672,22 +672,22 @@
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de cotar Copos Térmicos com gravação a laser.')" target="_blank"
-                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
+                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 5: CADERNOS MINIATURA PERSONALIZADOS (IMG_2358.jpg) -->
+                <!-- CARD 5: CADERNOS MINIATURA PERSONALIZADOS -->
                 <div id="polaroid-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'amigo-secreto'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
+                        <div class="relative h-80 sm:h-96 overflow-hidden bg-slate-950 flex items-center justify-center p-4 border-b border-slate-200">
                             <img src="IMG_2358.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/D97706/FFF?text=Caderninhos+Personalizados'" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/D97706/FFF?text=Caderninhos+Personalizados'" 
                                  alt="Caderninhos Tema Carros" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-amber-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
+                            <span class="absolute top-4 right-4 bg-amber-600 text-white text-[11px] font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow z-10">
                                 📝 Papelaria Criativa
                             </span>
                         </div>
@@ -698,22 +698,22 @@
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Gostaria de encomendar Caderninhos Personalizados.')" target="_blank"
-                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
+                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             Encomendar no WhatsApp
                         </a>
                     </div>
                 </div>
 
-                <!-- CARD 6: GARRAFA TÉRMICA ESTILIZADA (IMG_2576.jpg) -->
+                <!-- CARD 6: GARRAFA TÉRMICA ESTILIZADA -->
                 <div id="corporativo-natal" x-show="categoryFilter === 'todos' || categoryFilter === 'cuias-canecas'" x-transition
                      class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
                     <div>
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-slate-950/90 flex items-center justify-center p-3 border-b border-slate-200">
+                        <div class="relative h-80 sm:h-96 overflow-hidden bg-slate-950 flex items-center justify-center p-4 border-b border-slate-200">
                             <img src="IMG_2576.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/0F172A/FFF?text=Garrafa+Termica+Verde'" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/0F172A/FFF?text=Garrafa+Termica+Verde'" 
                                  alt="Garrafa Térmica Verde Cecy" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow z-10">
+                            <span class="absolute top-4 right-4 bg-emerald-700 text-white text-[11px] font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow z-10">
                                 💧 Garrafas Térmicas
                             </span>
                         </div>
@@ -724,7 +724,7 @@
                     </div>
                     <div class="p-6 pt-0">
                         <a :href="getWhatsAppLink('Olá Studio CZ! Quero encomendar Garrafa Térmica personalizada.')" target="_blank"
-                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
+                           class="w-full bg-natal-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-md">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             Encomendar no WhatsApp
                         </a>
@@ -774,6 +774,21 @@
                         <label class="block text-xs font-bold text-natal-goldLight mb-1">Nome ou Texto para Personalizar (Opcional)</label>
                         <input type="text" x-model="simDetails" placeholder="Ex: Nome da pessoa, frase 'Feliz Natal Vovô', logo da empresa..."
                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-natal-gold">
+                    </div>
+
+                    <div class="md:col-span-2 pt-2">
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-natal-gold to-amber-500 hover:from-amber-500 hover:to-natal-gold text-slate-950 font-extrabold py-4 rounded-xl text-base shadow-xl flex items-center justify-center gap-3 gold-glow transition-all">
+                            <i data-lucide="gift" class="w-5 h-5 text-slate-950"></i>
+                            Gerar Pedido no WhatsApp da Studio CZ 🎄
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
     <!-- SEÇÃO ATELIÊ FÍSICO COM AS NOVAS FOTOS DA FAMÍLIA E DO JOÃO MIGUEL -->
     <section id="sobre" class="py-16 sm:py-24 bg-white text-slate-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
@@ -920,7 +935,6 @@
                     <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" rel="noopener noreferrer"
                        class="w-10 h-10 rounded-2xl bg-instagram-official text-white flex items-center justify-center shadow-lg hover:scale-110 transition-all border-2 border-white/60 ig-glow">
                         <svg class="w-5.5 h-5.5 fill-current text-white drop-shadow-md" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </svg>
                     </a>
 
                     <span class="text-white font-extrabold text-sm font-heading">Studio CZ Personalizados • Especial de Natal</span>
@@ -928,7 +942,7 @@
 
                 <div class="flex gap-3">
                     <a href="https://www.instagram.com/studiozpersonalizados_/" target="_blank" class="w-9 h-9 rounded-2xl bg-instagram-official text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md">
-                        <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></svg>
+                        <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <a href="https://www.facebook.com/p/Studio-z-personalizados-61586807782396/" target="_blank" class="w-9 h-9 rounded-2xl bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md">
                         <i data-lucide="facebook" class="w-5 h-5"></i>
